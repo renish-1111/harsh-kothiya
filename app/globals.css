@@ -1,2 +1,23 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@theme {
+  --color-accent: #b22222;
+  --color-offwhite: #F3F4F4;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

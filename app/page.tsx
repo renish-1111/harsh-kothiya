@@ -5,17 +5,20 @@ import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import SmoothScroll from '@/components/SmoothScroll';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-slate-300 selection:bg-emerald-500/30 selection:text-emerald-200">
-      <Navbar />
-      <Hero />
-      <Toolbox />
-      <Projects />
-      <About />
-      <Contact />
-      <Footer />
-    </main>
+    <SmoothScroll>
+      <main className="min-h-screen bg-black text-slate-300 selection:bg-accent/30 selection:text-accent">
+        <Navbar />
+        <Hero />
+        <Toolbox />
+        <Projects />
+        <About />
+        <Contact />
+        <Footer />
+      </main>
+    </SmoothScroll>
   );
 }

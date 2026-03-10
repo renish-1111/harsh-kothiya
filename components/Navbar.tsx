@@ -33,11 +33,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center gap-2 group">
-              <div className="p-2 bg-emerald-500/10 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
-                <BarChart2 className="w-6 h-6 text-emerald-400" />
+              <div className="p-2 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors">
+                <BarChart2 className="w-6 h-6 text-accent" />
               </div>
-              <span className="font-display font-bold text-xl text-white tracking-tight">
-                Data<span className="text-emerald-400">Analyst</span>
+              <span className="font-display font-bold text-xl text-offwhite tracking-tight">
+                Data<span className="text-accent">Analyst</span>
               </span>
             </a>
           </div>
@@ -48,7 +48,7 @@ export default function Navbar() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors"
+                    className="relative text-sm font-medium text-slate-300 hover:text-accent transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                   >
                     {link.name}
                   </a>
@@ -60,7 +60,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-slate-300 hover:text-white focus:outline-none"
+              className="p-2 text-slate-300 hover:text-offwhite focus:outline-none"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -82,7 +82,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors"
+                className="block px-3 py-3 text-base font-medium text-slate-300 hover:text-accent hover:bg-slate-800/50 rounded-lg transition-colors"
               >
                 {link.name}
               </a>

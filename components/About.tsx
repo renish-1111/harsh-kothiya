@@ -17,38 +17,38 @@ export default function About() {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-                My <span className="text-emerald-400">Journey</span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-offwhite mb-4">
+                My <span className="text-accent">Journey</span>
               </h2>
               <p className="text-slate-400 leading-relaxed text-lg">
-                From mechanical engineering to data analytics, my path has been driven by a fascination with systems, efficiency, and finding the truth hidden in numbers.
+                With a strong foundation in Artificial Intelligence and Data Science, my journey has been driven by a passion for uncovering patterns, building data-driven solutions, and turning raw numbers into actionable insights.
               </p>
             </div>
 
             <div className="space-y-6">
-              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 hover:border-emerald-500/30 transition-colors">
+              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 hover:border-accent/30 transition-colors">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-emerald-500/10 rounded-xl mt-1">
-                    <Briefcase className="w-6 h-6 text-emerald-400" />
+                  <div className="p-3 bg-accent/10 rounded-xl mt-1">
+                    <Briefcase className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-display font-bold text-white mb-1">Data Analyst Intern</h3>
-                    <p className="text-emerald-400 font-medium mb-4">Creart Solution Pvt Ltd</p>
+                    <h3 className="text-xl font-display font-bold text-offwhite mb-1">Data Analyst Intern</h3>
+                    <p className="text-accent font-medium mb-4">Creart Solution Pvt Ltd</p>
                     <div className="flex items-center gap-4 text-sm text-slate-500 mb-4 font-mono">
-                      <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> 2023 - Present</span>
-                      <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> Remote</span>
+                      <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> 2026 - Present</span>
+                      <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> Ahmedabad</span>
                     </div>
                     <ul className="space-y-3 text-slate-400 text-sm leading-relaxed">
                       <li className="flex items-start gap-2">
-                        <span className="text-emerald-400 mt-1">▹</span>
+                        <span className="text-accent mt-1">▹</span>
                         Assisted in cleaning and preprocessing large datasets using Python (Pandas) and SQL, reducing data inconsistencies by 15%.
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-emerald-400 mt-1">▹</span>
+                        <span className="text-accent mt-1">▹</span>
                         Developed interactive Power BI dashboards to visualize key performance indicators for client projects.
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-emerald-400 mt-1">▹</span>
+                        <span className="text-accent mt-1">▹</span>
                         Collaborated with the engineering team to automate weekly reporting processes, saving 5 hours of manual work per week.
                       </li>
                     </ul>
@@ -56,19 +56,19 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/30 transition-colors">
+              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 hover:border-accent/30 transition-colors">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-cyan-500/10 rounded-xl mt-1">
-                    <GraduationCap className="w-6 h-6 text-cyan-400" />
+                  <div className="p-3 bg-accent/10 rounded-xl mt-1">
+                    <GraduationCap className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-display font-bold text-white mb-1">B.Tech in Mechanical Engineering</h3>
-                    <p className="text-cyan-400 font-medium mb-4">University Name</p>
+                    <h3 className="text-xl font-display font-bold text-offwhite mb-1">B.E. Artificial Intelligence & Data Science</h3>
+                    <p className="text-accent font-medium mb-4">Government Engineering College, Rajkot</p>
                     <div className="flex items-center gap-4 text-sm text-slate-500 mb-4 font-mono">
-                      <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> 2019 - 2023</span>
+                      <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> 2022 - 2026</span>
                     </div>
                     <p className="text-slate-400 text-sm leading-relaxed">
-                      My engineering background taught me rigorous problem-solving, mathematical modeling, and how to approach complex systems logically. I transitioned to data analytics after discovering the power of programming to optimize processes and extract insights from raw information.
+                      Studied core subjects in AI, Machine Learning, Data Structures, and Statistical Analysis. Developed a strong foundation in Python, SQL, and data visualization tools through academic projects and hands-on labs. Gained practical experience in data preprocessing, predictive modeling, and building analytical dashboards.
                     </p>
                   </div>
                 </div>
@@ -83,21 +83,21 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-3xl blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-accent/20 rounded-3xl blur-3xl" />
             <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-8 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
               
-              <h3 className="text-2xl font-display font-bold text-white mb-6">The Transition</h3>
-              
+              <h3 className="text-2xl font-display font-bold text-offwhite mb-6">My Approach</h3>
+
               <div className="space-y-6 text-slate-400 leading-relaxed">
                 <p>
-                  During my mechanical engineering studies, I found myself increasingly drawn to the data behind the machines rather than the machines themselves. Whether it was analyzing stress test results or optimizing thermodynamic cycles, the numbers told the real story.
+                  During my B.E. in AI & Data Science at GEC Rajkot, I discovered that the real power of data lies not just in collecting it, but in asking the right questions and presenting answers that drive decisions.
                 </p>
                 <p>
-                  I started learning Python to automate my lab calculations. That curiosity quickly snowballed into learning SQL to manage larger datasets, and Power BI to present my findings clearly.
+                  I started with Python and SQL to wrangle messy datasets, then expanded into Power BI and Tableau to bring data to life through interactive dashboards. Each academic project deepened my understanding of how visualization and analysis can solve real-world problems.
                 </p>
                 <p>
-                  Now, as a Data Analyst, I apply the same rigorous, analytical mindset I learned in engineering to solve business problems. I believe that good data analysis isn&apos;t just about writing complex queries; it&apos;s about asking the right questions and translating the answers into actionable strategy.
+                  Now, as a Data Analyst Intern at Creart Solution, I apply these skills daily — cleaning data, building dashboards, and automating reports. I believe great data analysis is about clarity: transforming complex datasets into simple, compelling stories that anyone can act on.
                 </p>
               </div>
 
