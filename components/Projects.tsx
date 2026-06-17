@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useMotionTemplate, useMotionValue, useSpring } from 'motion/react';
 import { ArrowUpRight, Database, BarChart2 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -48,9 +49,123 @@ const projects = [
   },
 ];
 
+function ProjectCard({ project, index }: { project: any; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 40 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 40 });
+
+  const rotateX = useMotionTemplate`${mouseYSpring}deg`;
+  const rotateY = useMotionTemplate`${mouseXSpring}deg`;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    // Calculate rotation between -10 and 10 degrees
+    const rY = ((mouseX / width) - 0.5) * 20;
+    const rX = ((mouseY / height) - 0.5) * -20;
+
+    x.set(rY);
+    y.set(rX);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6 }}
+      className={`flex flex-col lg:flex-row gap-12 items-center ${
+        index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+      }`}
+    >
+      {/* Image Container */}
+      <div className="w-full lg:w-1/2 relative group" style={{ perspective: '1000px' }}>
+        <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <motion.div
+          ref={ref}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            rotateX,
+            rotateY,
+            transformStyle: "preserve-3d"
+          }}
+          className="relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-300 ease-out"
+        >
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={1600}
+            height={900}
+            className="w-full h-auto grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+            style={{ transform: "translateZ(50px)" }}
+          />
+          {/* Overlay tags */}
+          <div 
+            className="absolute top-4 left-4 flex gap-2 flex-wrap z-10"
+            style={{ transform: "translateZ(80px)" }}
+          >
+            {project.tags.map((tag: string) => (
+              <span key={tag} className="px-3 py-1 text-xs font-mono font-medium bg-base/80 text-accent rounded-full backdrop-blur-md border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Content Container */}
+      <div className="w-full lg:w-1/2 space-y-8">
+        <div>
+          <p className="text-sm font-mono text-accent mb-2 uppercase tracking-wider">{project.category}</p>
+          <h3 className="text-3xl font-display font-bold text-offwhite mb-6 group-hover:text-accent transition-colors">
+            {project.title}
+          </h3>
+        </div>
+
+        <div className="space-y-6">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-offwhite mb-2">
+              <Database className="w-4 h-4 text-accent" /> Problem
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed">{project.problem}</p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-offwhite mb-2">
+              <BarChart2 className="w-4 h-4 text-accent" /> Tool & Approach
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed">{project.tool}</p>
+          </div>
+
+          <div className="bg-accent/10 backdrop-blur-md border border-accent/20 rounded-xl p-6 hover:bg-accent/20 transition-colors shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-accent mb-2">
+              <ArrowUpRight className="w-4 h-4" /> Impact
+            </h4>
+            <p className="text-slate-300 text-sm leading-relaxed font-medium">{project.impact}</p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-black relative border-t border-slate-900">
+    <section id="projects" className="py-24 bg-base relative border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -88,73 +203,7 @@ export default function Projects() {
 
         <div className="space-y-24">
           {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className={`flex flex-col lg:flex-row gap-12 items-center ${
-                index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Image Container */}
-              <div className="w-full lg:w-1/2 relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={1600}
-                    height={900}
-                    className="w-full h-auto grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                  />
-                  {/* Overlay tags */}
-                  <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 text-xs font-mono font-medium bg-black/80 text-accent rounded-full backdrop-blur-sm border border-slate-800">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Content Container */}
-              <div className="w-full lg:w-1/2 space-y-8">
-                <div>
-                  <p className="text-sm font-mono text-accent mb-2 uppercase tracking-wider">{project.category}</p>
-                  <h3 className="text-3xl font-display font-bold text-offwhite mb-6 group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
-                    <h4 className="flex items-center gap-2 text-sm font-semibold text-offwhite mb-2">
-                      <Database className="w-4 h-4 text-accent" /> Problem
-                    </h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{project.problem}</p>
-                  </div>
-
-                  <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
-                    <h4 className="flex items-center gap-2 text-sm font-semibold text-offwhite mb-2">
-                      <BarChart2 className="w-4 h-4 text-accent" /> Tool & Approach
-                    </h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{project.tool}</p>
-                  </div>
-
-                  <div className="bg-accent/20 border border-accent/50 rounded-xl p-6 hover:border-accent/30 transition-colors">
-                    <h4 className="flex items-center gap-2 text-sm font-semibold text-accent mb-2">
-                      <ArrowUpRight className="w-4 h-4" /> Impact
-                    </h4>
-                    <p className="text-slate-300 text-sm leading-relaxed font-medium">{project.impact}</p>
-                  </div>
-                </div>
-
-
-              </div>
-            </motion.div>
+            <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
       </div>

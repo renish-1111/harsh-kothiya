@@ -24,13 +24,17 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-slate-800' : 'bg-transparent'
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'top-4 mx-auto max-w-4xl bg-base/80 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]' 
+          : 'top-0 w-full bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className={`${isScrolled ? 'px-6' : 'max-w-7xl mx-auto px-6 lg:px-8'}`}>
+        <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'}`}>
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center gap-2 group">
               <div className="p-2 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors">
@@ -74,7 +78,7 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden bg-slate-900 border-b border-slate-800"
+          className="md:hidden bg-black/40 backdrop-blur-xl border-b border-white/10"
         >
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
@@ -82,7 +86,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-3 text-base font-medium text-slate-300 hover:text-accent hover:bg-slate-800/50 rounded-lg transition-colors"
+                className="block px-3 py-3 text-base font-medium text-slate-300 hover:text-accent hover:bg-white/5 rounded-lg transition-colors backdrop-blur-sm"
               >
                 {link.name}
               </a>
@@ -90,6 +94,6 @@ export default function Navbar() {
           </div>
         </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 }

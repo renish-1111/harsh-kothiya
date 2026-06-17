@@ -58,7 +58,7 @@ const skills = [
 
 export default function Toolbox() {
   return (
-    <section id="toolbox" className="py-24 bg-black relative border-t border-slate-900">
+    <section id="toolbox" className="py-24 bg-base relative border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
@@ -88,7 +88,7 @@ export default function Toolbox() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 transition-all duration-300 group hover:border-accent/40 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(178,34,34,0.12)] hover:bg-slate-900/80"
+              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-all duration-300 group hover:border-accent/40 hover:-translate-y-2 hover:shadow-[0_8px_32px_0_rgba(178,34,34,0.3)] hover:bg-white/10"
               whileHover={{ scale: 1.02 }}
             >
               <div className="flex items-center gap-3 mb-6">
@@ -130,7 +130,7 @@ export default function Toolbox() {
           </p>
           <div className="flex gap-8 justify-center flex-wrap opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
             {['Git', 'GitHub', 'Jupyter', 'Google Analytics', 'Snowflake', 'AWS S3', 'dbt', 'Airflow'].map((tool) => (
-              <div key={tool} className="flex items-center gap-2 px-4 py-2 bg-slate-900 rounded-full border border-slate-800">
+              <div key={tool} className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]">
                 <Terminal className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium text-slate-300">{tool}</span>
               </div>

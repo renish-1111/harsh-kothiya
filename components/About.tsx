@@ -5,7 +5,7 @@ import { Briefcase, GraduationCap, MapPin, Calendar } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-black relative border-t border-slate-900">
+    <section id="about" className="py-24 bg-base relative border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -26,7 +26,7 @@ export default function About() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 hover:border-accent/30 transition-colors">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-accent/10 rounded-xl mt-1">
                     <Briefcase className="w-6 h-6 text-accent" />
@@ -56,7 +56,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 hover:border-accent/30 transition-colors">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-accent/10 rounded-xl mt-1">
                     <GraduationCap className="w-6 h-6 text-accent" />
@@ -84,7 +84,7 @@ export default function About() {
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-accent/20 rounded-3xl blur-3xl" />
-            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-8 overflow-hidden">
+            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl p-8 overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
               
               <h3 className="text-2xl font-display font-bold text-offwhite mb-6">My Approach</h3>
@@ -105,7 +105,7 @@ export default function About() {
                 <p className="text-sm font-mono text-slate-500 uppercase tracking-widest mb-4">Core Competencies</p>
                 <div className="flex flex-wrap gap-2">
                   {['Analytical Thinking', 'Problem Solving', 'Data Storytelling', 'Statistical Analysis', 'Process Automation'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">
+                    <span key={skill} className="px-3 py-1 bg-base/80 text-slate-300 text-sm rounded-full border border-white/10 backdrop-blur-sm shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]">
                       {skill}
                     </span>
                   ))}

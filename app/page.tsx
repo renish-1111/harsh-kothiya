@@ -10,7 +10,7 @@ import SmoothScroll from '@/components/SmoothScroll';
 export default function Home() {
   return (
     <SmoothScroll>
-      <main className="min-h-screen bg-black text-slate-300 selection:bg-accent/30 selection:text-accent">
+      <main className="min-h-screen bg-base text-slate-300 selection:bg-accent/30 selection:text-accent">
         <Navbar />
         <Hero />
         <Toolbox />

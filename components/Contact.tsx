@@ -15,7 +15,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-black relative border-t border-slate-900 overflow-hidden">
+    <section id="contact" className="py-24 bg-base relative border-t border-slate-900 overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 w-full max-w-3xl h-96 bg-accent/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2" />
       </div>
@@ -40,12 +40,12 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12 backdrop-blur-sm"
+          className="bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl p-8 md:p-12"
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
-            <div className="flex items-center gap-4 px-6 py-4 bg-black border border-slate-800 rounded-2xl w-full md:w-auto">
+            <div className="flex items-center gap-4 px-6 py-4 bg-base/80 border border-white/10 rounded-2xl w-full md:w-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
               <Mail className="w-6 h-6 text-accent" />
-              <span className="text-slate-300 font-mono text-sm sm:text-base truncate">{email}</span>
+              <span className="text-white font-mono font-medium text-sm sm:text-base break-all sm:break-normal truncate">{email}</span>
               <button
                 onClick={copyEmail}
                 className="ml-auto p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-offwhite"
@@ -71,7 +71,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3"
             >
-              <div className="p-4 bg-black border border-slate-800 rounded-2xl group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300">
+              <div className="p-4 bg-base/80 border border-white/10 rounded-2xl group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]">
                 <Linkedin className="w-6 h-6 text-slate-400 group-hover:text-accent transition-colors" />
               </div>
               <span className="text-sm font-medium text-slate-500 group-hover:text-slate-300 transition-colors">LinkedIn</span>
@@ -83,7 +83,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3"
             >
-              <div className="p-4 bg-black border border-slate-800 rounded-2xl group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300">
+              <div className="p-4 bg-base/80 border border-white/10 rounded-2xl group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]">
                 <Github className="w-6 h-6 text-slate-400 group-hover:text-accent transition-colors" />
               </div>
               <span className="text-sm font-medium text-slate-500 group-hover:text-slate-300 transition-colors">GitHub</span>
